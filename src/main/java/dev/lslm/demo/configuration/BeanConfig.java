@@ -17,7 +17,7 @@ public class BeanConfig {
     }
 
     @Bean
-    public ClienteRepositoryPort clienteRepositoryPort(SQLServerAdapter adapter) {
+    public ClienteRepositoryPort clienteRepositoryPort(ClienteRepositoryAdapter adapter) {
         return adapter;
     }
 }
