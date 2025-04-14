@@ -5,6 +5,7 @@ import dev.lslm.demo.domain.ports.out.ClienteRepositoryPort;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
@@ -30,6 +31,16 @@ public class ClienteRepositoryAdapter implements ClienteRepositoryPort {
                 .stream()
                 .map(this::toDomain)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Optional<Cliente> buscarPorId(Long id) {
+        return springDataClienteRepository.findById(id).map(this::toDomain);
+    }
+
+    @Override
+    public void apagar(Long id) {
+        springDataClienteRepository.deleteById(id);
     }
 
     private ClienteEntity toEntity(Cliente cliente) {

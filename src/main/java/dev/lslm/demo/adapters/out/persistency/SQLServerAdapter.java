@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class SQLServerAdapter implements ClienteRepositoryPort {
-    @Override
+public class SQLServerAdapter {
+
     public Cliente salvar(Cliente cliente) {
         System.out.println("Salvando no SQLServer");
         System.out.println("...........");
@@ -16,7 +16,6 @@ public class SQLServerAdapter implements ClienteRepositoryPort {
         return cliente;
     }
 
-    @Override
     public List<Cliente> buscarClientes() {
         return List.of();
     }
